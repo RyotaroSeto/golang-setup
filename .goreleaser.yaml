@@ -37,7 +37,8 @@ changelog:
       - "^test:"
 
 brews:
-  - tap:
-      owner: RyotaroSeto
-      name: homebrew-tap
-      token: "{{ .Env.TAP_GITHUB_TOKEN }}"
+  - name: goup
+    homepage: https://github.com/RyotaroSeto/goup
+    description: A description of the formula
+    dependencies:
+      - go
