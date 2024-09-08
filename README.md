@@ -48,7 +48,27 @@ To run all tests in the project with verbose output and coverage reporting, use 
 
 This will:
 
-- Run all tests in the current project with verbose output (-v) and generate a test coverage report (-cover).
+- Run all tests in the current project with verbose output (`-v`) and generate a test coverage report (`-cover`).
+
+You can also run a specific test function using the `--run` flag:
+```bash
+% goup test --run <test-function>
+```
+
+This will only run the `TestExample` function.
+
+### Run benchmarks in the project
+
+To run all benchmark tests in the project, use the following command:
+```bash
+% goup benchmark
+```
+
+This will run all the benchmarks in the current project. You can also specify a specific benchmark function using the `--bench` flag:
+
+```bash
+% goup benchmark --bench <benchmark-function>
+```
 
 ## Example
 
@@ -64,6 +84,29 @@ This will create a new Go project named `my-new-project` with the necessary setu
 ```
 
 This will run all the tests in the project with detailed output and coverage information.
+
+### Run a specific test
+```bash
+% goup test --run TestExample
+```
+
+This will run only the `TestExample` test function.
+
+
+### Run benchmarks
+```bash
+% goup benchmark
+```
+
+This will run all the benchmarks in the project.
+
+### Run a specific benchmark
+```bash
+% goup benchmark --bench BenchmarkSort
+```
+
+This will run only the `BenchmarkSort` benchmark function.
+
 
 ## LICENSE
 [MIT](./LICENSE)
