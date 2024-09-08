@@ -22,6 +22,8 @@ To upgrade `goup` to the latest version, use the following command:
 
 ## Usage
 
+### Initialize a new Go project
+
 Here is how you can use `goup` to initialize a new Go project:
 
 1. Initialize a new Go project by running the following command:
@@ -36,11 +38,32 @@ This will:
 - Run `go mod tidy` to clean up and synchronize dependencies.
 - Create a basic `main.go` file with a "Hello, World!" example.
 
+### Run tests in the project
+
+To run all tests in the project with verbose output and coverage reporting, use the test command:
+
+```bash
+% goup test
+```
+
+This will:
+
+- Run all tests in the current project with verbose output (-v) and generate a test coverage report (-cover).
+
 ## Example
+
+### Initialize a new project
 ```bash
 % goup init my-new-project
 ```
 This will create a new Go project named `my-new-project` with the necessary setup files.
+
+### Run tests
+```bash
+% goup test
+```
+
+This will run all the tests in the project with detailed output and coverage information.
 
 ## LICENSE
 [MIT](./LICENSE)

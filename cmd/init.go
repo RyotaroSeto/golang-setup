@@ -5,8 +5,8 @@ package cmd
 
 import (
 	"fmt"
+	"goup/internal/executil"
 	"os"
-	"os/exec"
 
 	"github.com/spf13/cobra"
 )
@@ -21,11 +21,11 @@ This will run 'go mod init', 'go mod tidy', and create a main.go file.`,
 		moduleName := args[0]
 		fmt.Printf("Initializing Go module: %s\n", moduleName)
 
-		if err := runCommand("go", "mod", "init", moduleName); err != nil {
+		if err := executil.RunCommand("go", "mod", "init", moduleName); err != nil {
 			return fmt.Errorf("failed to run go mod init: %w", err)
 		}
 
-		if err := runCommand("go", "mod", "tidy"); err != nil {
+		if err := executil.RunCommand("go", "mod", "tidy"); err != nil {
 			return fmt.Errorf("failed to run go mod tidy: %w", err)
 		}
 
@@ -40,13 +40,6 @@ This will run 'go mod init', 'go mod tidy', and create a main.go file.`,
 
 func init() {
 	rootCmd.AddCommand(initCmd)
-}
-
-func runCommand(name string, args ...string) error {
-	cmd := exec.Command(name, args...)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	return cmd.Run()
 }
 
 func createMainGo() error {
